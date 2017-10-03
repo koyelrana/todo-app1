@@ -1,0 +1,175 @@
+<!--<section class="todoapp">
+  <header class="header">
+    <h1>Todos</h1>
+    <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="model.title" (keyup.enter)="addTodo()">
+  </header>
+  <section class="main" *ngIf="todos.length > 0">
+    <ul class="todo-list">
+      <li *ngFor="let todo of todos" [class.completed]="todo.complete">
+        <div class="view">
+          <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
+          <label>{{todo.title}}</label>
+          <button class="destroy" (click)="removeTodo(todo)"></button>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <footer class="footer" *ngIf="todos.length > 0">
+    <span class="todo-count"><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
+  </footer>
+</section>
+-->
+
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <h1>Todo App</h1>
+</head>
+
+
+
+    <div class="container">
+    <div class="form-group">
+    <label for="id">Id</label>
+    <input type="text" name="id" id="id" class="form-control" [(ngModel)]="model.id" >
+  </div>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="name" id="title" class="form-control"  [(ngModel)]="model.title" >
+  </div>
+  <div class="form-group">
+    <label for="com">Complete</label>
+    <input type="text" name="complete" id="com" class="form-control" [(ngModel)]="model.complete" >
+  </div>
+ 
+  <input type="button" class="btn btn-info" href="#abc" value="Add" (click)="addTodo()">
+
+  </div>
+  
+  <!--<td><button id="btnadd">Add</button></td>-->
+
+
+  <!--<p id="list"></p>-->
+  <div class="container" id=abc>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Complete</th>
+          <th width="200" align="center">Action</th>
+        </tr>
+      </thead>
+        <tbody>
+         <tr *ngFor="let todo of todos">
+            <td>{{todo.id}}</td>
+            <td>{{todo.title}}</td>
+            <td>{{todo.complete}}</td>
+            
+            <td width="275">
+              <a class="btn btn-success" (click)="editTodo(todo.id)">Edit</a>
+              <a class="btn btn-danger" (click)="deleteTodo(todo.id)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+ 
+  <!--<script>
+    $("#btnadd").click(function () {
+      $.ajax({
+        type: 'POST',
+        url: "http://localhost:8080/Todos",
+        data: JSON.stringify({
+          "title": document.getElementById("title").value,
+          "complete": document.getElementById("com").value,
+          
+        }),
+        error: function (e) {
+          console.log(e);
+
+        },
+        dataType: "json",
+        contentType: "application/json"
+      });
+      alert(empname);
+      clear();
+    });
+
+    function clear() {
+      document.getElementById("title").value = "";
+      document.getElementById("com").value = "";
+    
+    }
+    $("#btndelete").click(function () {
+      var id = document.getElementById("id1").value;
+      $.ajax({
+        type: 'DELETE',
+        url: "http://localhost:8080/Todos/" + id,
+        data: JSON.stringify({
+          //id: document.getElementById("id1").value
+        }),
+        error: function (e) {
+          console.log(e);
+        },
+        dataType: "json",
+        contentType: "application/json"
+      });
+      clear();
+    });
+    var id3;
+    var emp = {};
+    $("#btnedit").click(function () {
+      var id2 = document.getElementById("id1").value;
+      id3 = id2;
+      //      alert("jhfg"+id3);
+
+
+      console.log(id3);
+      $.ajax({
+        type: 'GET',
+        contentType: 'json',
+        url: 'http://localhost:8080/Todos/' + id3,
+        dataType: 'json',
+
+        success: function (data) {
+          console.log(data);
+          emp = data;
+          document.getElementById("title").value = emp.title;
+          document.getElementById("com").value = emp.complete;
+        
+          console.log(emp.title);
+        },
+        error: function (e) {
+          console.log("Error");
+        },
+        done: function () {
+          console.log("Data Retrived Successfully");
+        }
+      });
+    });
+    $("#btnupdate").click(function () {
+      //   alert(id3);
+      $.ajax({
+        type: 'PUT',
+        contentType: 'json',
+        url: "http://localhost:8080/Todos/" + id3,
+        data: JSON.stringify({
+          "title": document.getElementById("title").value,
+          "complete": document.getElementById("com").value,
+         
+        }),
+        error: function (e) {
+          console.log(e);
+
+        },
+        dataType: "json",
+        contentType: "application/json"
+      });
+      clear();
+
+    });
+  </script>-->
